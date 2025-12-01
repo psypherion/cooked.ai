@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional, Dict
 
-# 1. The Output Structure (What we send to Frontend)
 class UserProfile(BaseModel):
     display_name: str
     archetype: str
@@ -23,16 +22,12 @@ class Verdicts(BaseModel):
     verdict_3: str
     verdict_4: str
 
-class RoastResponse(BaseModel):
-    status: str
-    data: Dict[str, UserProfile | RoastContent | Stats | Verdicts]
-    
 class RoastData(BaseModel):
     user_profile: UserProfile
     roast: RoastContent
     stats: Stats
     verdict: Verdicts
 
-class APIResponse(BaseModel):
+class RoastResponse(BaseModel):
     status: str
     data: RoastData

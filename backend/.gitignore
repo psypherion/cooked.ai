@@ -1,0 +1,15 @@
+dataset/
+roast_db/
+__pycache__/
+*.pyc
+.env
+.env.local
+.env.*.local
+.DS_Store
+.vscode/
+.idea/
+*.sqlite3
+*.log
+logs/
+app/roast_db/
+

@@ -1,4 +1,5 @@
 import chromadb
+import chromadb.errors
 from chromadb.utils import embedding_functions
 from datasets import load_dataset
 import os
@@ -15,12 +16,12 @@ sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFuncti
 # Delete collection if it exists (to start fresh) try/except block
 try:
     client.delete_collection(name="reddit_roasts")
-except ValueError:
+except (ValueError, chromadb.errors.NotFoundError):
     pass
 
 collection = client.create_collection(
     name="reddit_roasts",
-    embedding_function=sentence_transformer_ef  # type: ignore
+    embedding_function=sentence_transformer_ef
 )
 
 print("📥 Downloading Dataset (this might take a moment)...")

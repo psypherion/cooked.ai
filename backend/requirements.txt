@@ -8,3 +8,7 @@ pydantic
 chromadb
 sentence-transformers
 datasets
+face-recognition
+numpy
+pillow
+pydantic-settings
